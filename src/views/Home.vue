@@ -3,7 +3,7 @@
     <div class="content-container">
       <div class="fruit-grid">
         <div class="fruit-row">
-          <div class="fruit-box-item" @click="handleFruit('apple')">
+          <div class="fruit-box-item" @click="handleFruit('apple'); $emit('buttonClicked')">
             <img
               class="fruit-grid-image"
               src="../assets/apple.png"
@@ -14,7 +14,7 @@
             </div>
           </div>
 
-          <div class="fruit-box-item" @click="handleFruit('banana')">
+          <div class="fruit-box-item" @click="handleFruit('banana'); $emit('buttonClicked')">
             <img
               class="fruit-grid-image"
               src="../assets/banana.png"
@@ -24,7 +24,7 @@
               <h1>Banana</h1>
             </div>
           </div>
-          <div class="fruit-box-item" @click="handleFruit('grapes')">
+          <div class="fruit-box-item" @click="handleFruit('grapes'); $emit('buttonClicked')">
             <img
               class="fruit-grid-image"
               src="../assets/grape.png"
@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="fruit-row">
-          <div class="fruit-box-item" @click="handleFruit('orange')">
+          <div class="fruit-box-item" @click="handleFruit('orange'); $emit('buttonClicked')">
             <img
               class="fruit-grid-image"
               src="../assets/orange.png"
@@ -47,7 +47,7 @@
             </div>
           </div>
 
-          <div class="fruit-box-item" @click="handleFruit('watermelon')">
+          <div class="fruit-box-item" @click="handleFruit('watermelon'); $emit('buttonClicked')">
             <img
               class="fruit-grid-image"
               src="../assets/watermelon.png"
@@ -58,7 +58,7 @@
             </div>
           </div>
 
-          <div class="fruit-box-item" @click="handleFruit('strawberry')">
+          <div class="fruit-box-item" @click="handleFruit('strawberry'); $emit('buttonClicked')">
             <img
               class="fruit-grid-image"
               src="../assets/strawberry.png"
@@ -82,9 +82,9 @@
         </div>
         <div class="panel-content-box">
           <p id="panel-fact">{{fact}}</p>
-          <p id="in-season">In Season Price - {{priceInSeason}}</p>
-          <p id="out-of-season">Out of Season Price - {{priceOutOfSeason}}</p>
-          <p id="growth-season">Season - {{season}}</p>
+          <p id="in-season">{{fruitPanelInSeason}} - {{priceInSeason}}</p>
+          <p id="out-of-season">{{fruitPanelOutOfSeason}} - {{priceOutOfSeason}}</p>
+          <p id="growth-season">{{fruitPanelSeason}} - {{season}}</p>
         </div>
       </div>
     </div> 
@@ -97,6 +97,9 @@ export default {
     data () {
         return {
             // variables that are set to defaults on the page when you first open the site. They are changed once you click a fruit on the site.
+            fruitPanelInSeason: "In Season Price ",
+            fruitPanelOutOfSeason: "Out of Season Price",
+            fruitPanelSeason: "Season",
             name: "Click a fruit to Begin!" ,
             priceInSeason: 0,
             priceOutOfSeason: 0,

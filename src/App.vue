@@ -1,28 +1,44 @@
 <template>
   <Navbar />
-    <h1 class="body-heading">
-      {{entryHeading}}
-    </h1>
-    <SearchBar />
-  <Home />
+  
+    <!-- <router-link :to="{ name:Home }"></router-link> -->
+    <!-- <div v-if="showSearchBar">
+      <SearchBar>
+        <template v-slot:heading><h1 class="body-heading" @click="toggleSearchbar">{{entryHeading}}</h1></template>
+         
+      </SearchBar>
+    </div> -->
+
+    <!-- <Form></Form> -->
+    
+  <!-- <Home :fruitPanelInSeason="fruitPanelInSeason" :fruitPanelOutOfSeason="fruitPanelOutOfSeason" :fruitPanelSeason="fruitPanelSeason" v-on:buttonClicked="showSearchBar = false"/> -->
   <Footer />
 </template>
 
 <script>
 //Importing all components to be compatible with app.vue
-import Home from "./components/Home.vue";
+import Home from "./views/Home.vue";
 import Navbar from "./components/Navbar.vue";
 import Footer from "./components/Footer.vue";
 import SearchBar from "./components/SearchBar.vue";
+import Form from "./components/Form.vue"
 
 export default {
   name: "App",
-  components: {Home, Navbar, Footer, SearchBar},
+  components: {Home, Navbar, Footer, SearchBar, Form},
   data() {
     return {
       entryHeading: "Click a fruit to begin! - Or search for a fruit!",
+      showSearchBar: true,
+
     }
   },
+  methods: {
+    toggleSearchbar() {
+      this.showSearchBar = !this.showSearchBar
+      console.log(this.showSearchBar)
+    }
+  }
 };
 </script>
 
@@ -90,3 +106,4 @@ img {
 
 
 </style>
+

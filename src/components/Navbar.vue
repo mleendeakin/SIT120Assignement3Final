@@ -1,13 +1,30 @@
 <template>
     <div class="nav-container">
     <nav class="navbar">
-      <li class="title"><a href="index.html">FruitPedia </a></li>
-      <li><a href="">Seasons</a></li>
-      <li><a href="">Recipes</a></li>
-      <li><a href="">About</a></li>
+
+      <router-link :to="{ name: 'Home', params: {fruitPanelInSeason: fruitPanelInSeason}}" class="title">FruitPedia</router-link>
+      <router-link :to="{name: 'Seasons'}">Seasons</router-link>
+      <router-link :to="{name: 'Recipes'}">Recipes</router-link>
+      <router-link :to="{ name: 'About', params: { id: Aboutid}}">About</router-link>
+      
     </nav>
   </div>
+  <router-view/>
 </template>
+
+
+<script>
+export default {
+    data () {
+        return {
+          fruitPanelInSeason: "In Season Price ",
+          fruitPanelOutOfSeason: "Out of Season Price",
+          fruitPanelSeason: "Season",
+          Aboutid: "4",
+        }
+    }
+}
+</script>
 
 <style>
     /* Nav Bar */

@@ -5,12 +5,9 @@
         <a href="mleen@deakin.edu.au">Contact: mleen@deakin.edu.au</a>
       </p>
     </footer>
-</template>
-
-
+</template>\
 <style>
     /* footer */
-
 footer {
   text-align: center;
   position: fixed;
@@ -21,7 +18,6 @@ footer {
   bottom: 0;
   /* margin-bottom: auto; */
 }
-
 @media (max-width: 1000px) {
   footer {
     height: 5%;
